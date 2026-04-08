@@ -205,6 +205,53 @@
             background: url('https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/d509839d-5ba4-4505-a9f0-39d0e3d3d524/jzsnapz-chelsea-property-14.jpg') center/cover no-repeat;
         }
 
+        .hero-video-wrap {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .hero-video-wrap iframe {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 120vw; height: 120vh;
+            min-width: 120%; min-height: 120%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border: none;
+        }
+
+        /* Property video cards */
+        .property-video {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+
+        .property-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .property-video-label {
+            position: absolute;
+            bottom: 16px; left: 16px;
+            background: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(10px);
+            color: var(--warm-white);
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
         .hero-overlay {
             position: absolute; inset: 0;
             background: linear-gradient(
@@ -1328,6 +1375,13 @@
     <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="hero-bg"></div>
+        <div class="hero-video-wrap" id="heroVideoWrap">
+            <iframe id="heroVideo"
+                src="https://www.youtube.com/embed/91mqdbGl8D4?autoplay=1&mute=1&loop=1&playlist=91mqdbGl8D4&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&origin=https://dkempner411-eng.github.io"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-label">Release Recovery</div>
@@ -1555,8 +1609,8 @@
         </div>
         <div class="properties-grid">
             <div class="property-card reveal">
-                <div class="property-card-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/0b4cd0b8-53fd-4a86-bf10-126ed738aa9b/jzsnapz-chelsea-property-8.jpg" alt="NYC property">
+                <div class="property-video">
+                    <iframe src="https://www.youtube.com/embed/WMJbQsBJ0mQ?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Release Recovery: New York City Properties"></iframe>
                 </div>
                 <div class="property-card-body">
                     <h3>NYC Transitional Living</h3>
@@ -1565,8 +1619,8 @@
                 </div>
             </div>
             <div class="property-card reveal">
-                <div class="property-card-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/c18e75e4-076f-4895-b4dc-ba24125cd5d3/jzsnapz-westchester-underhill-14.jpg" alt="Westchester property">
+                <div class="property-video">
+                    <iframe src="https://www.youtube.com/embed/KfW9pxJQV2k?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Release Recovery: Westchester Properties"></iframe>
                 </div>
                 <div class="property-card-body">
                     <h3>Westchester Transitional Living</h3>
