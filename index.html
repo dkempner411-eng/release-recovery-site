@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Release Recovery helps individuals and families recover from substance use and mental health disorders through customized treatment, bespoke transitional living, and concierge recovery services.">
+    <meta property="og:title" content="Release Recovery">
+    <meta property="og:description" content="Change the way you approach recovery. Customized treatment, bespoke transitional living, and concierge recovery services.">
+    <meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/d509839d-5ba4-4505-a9f0-39d0e3d3d524/jzsnapz-chelsea-property-14.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Release Recovery">
+    <meta name="twitter:description" content="Change the way you approach recovery. Customized treatment, bespoke transitional living, and concierge recovery services.">
+    <meta name="twitter:image" content="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/d509839d-5ba4-4505-a9f0-39d0e3d3d524/jzsnapz-chelsea-property-14.jpg">
+    <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/3f7fdea6-67f0-4318-86f8-89426775911e/Yellow+Monochrome+Photo+LinkedIn+Banner.png">
+    <title>Release Recovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --charcoal: #1a1a1a;
+            --charcoal-light: #2a2a2a;
+            --warm-white: #faf8f5;
+            --cream: #f0ebe3;
+            --sand: #d4c9b8;
+            --olive: #6b7c5e;
+            --olive-light: #8a9e78;
+            --sage: #a3b18a;
+            --gold: #c9a84c;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-body: #4a4a4a;
+            --text-muted: #7a7a7a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: var(--warm-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 60px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav.scrolled {
+            background: rgba(26, 26, 26, 0.97);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+            height: 75px;
+        }
+
+        .nav-logo img {
+            height: 70px;
+            width: auto;
+            transition: all 0.3s;
+        }
+
+        nav.scrolled .nav-logo img { height: 55px; }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 1.5px;
+            background: var(--sage);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--sage); }
+
+        .nav-cta {
+            background: var(--olive) !important;
+            color: var(--white) !important;
+            padding: 10px 26px;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: all 0.3s !important;
+        }
+
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover {
+            background: var(--olive-light) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(107, 124, 94, 0.4);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 24px; height: 2px;
+            background: var(--cream);
+            transition: all 0.3s;
+        }
+
+        .mobile-close {
+            display: none;
+            position: absolute;
+            top: 24px; right: 24px;
+            width: 36px; height: 36px;
+            background: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--cream);
+            font-size: 1.2rem;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        .nav-links.open .mobile-close { display: flex; }
+
+        /* Sticky phone CTA bar on mobile */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            z-index: 998;
+            background: var(--olive);
+            padding: 14px 20px;
+            text-align: center;
+        }
+
+        .mobile-cta-bar a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-cta-bar svg {
+            width: 18px; height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-cta-bar { display: block; }
+            body { padding-bottom: 56px; }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: url('https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/d509839d-5ba4-4505-a9f0-39d0e3d3d524/jzsnapz-chelsea-property-14.jpg') center/cover no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(
+                120deg,
+                rgba(26, 26, 26, 0.92) 0%,
+                rgba(26, 26, 26, 0.65) 55%,
+                rgba(26, 26, 26, 0.4) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 700px;
+            padding: 0 80px;
+            animation: fadeUp 1.2s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.6rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--warm-white);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(240, 235, 227, 0.8);
+            max-width: 540px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--olive);
+            color: var(--white);
+            padding: 16px 36px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--olive-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(107, 124, 94, 0.35);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--cream);
+            padding: 16px 36px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1.5px solid rgba(240, 235, 227, 0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--cream);
+            background: rgba(240, 235, 227, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .hero-services {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            z-index: 2;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 22px 80px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .hero-service-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(240, 235, 227, 0.5);
+            transition: color 0.3s;
+        }
+
+        .hero-service-tag:hover { color: var(--sage); }
+
+        /* ===== SECTIONS COMMON ===== */
+        section { padding: 120px 80px; }
+
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--olive);
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .section-title.light { color: var(--warm-white); }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-body);
+            max-width: 600px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .section-subtitle.light { color: rgba(240, 235, 227, 0.7); }
+
+        /* ===== INTRO ===== */
+        .intro {
+            background: var(--warm-white);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .intro .section-subtitle { max-width: 750px; margin: 0 auto; }
+
+        .intro-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 70px;
+            width: 100%;
+        }
+
+        .intro-feature {
+            background: var(--white);
+            padding: 40px 32px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
+
+        .intro-feature:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.07);
+        }
+
+        .intro-feature-icon {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: rgba(107, 124, 94, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .intro-feature-icon svg {
+            width: 24px; height: 24px;
+            stroke: var(--olive);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .intro-feature h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .intro-feature p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== PROGRAMS SPLIT ===== */
+        .program-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            padding: 0;
+            min-height: 600px;
+        }
+
+        .program-section.reversed .program-images { order: 2; }
+        .program-section.reversed .program-content { order: 1; }
+
+        .program-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            min-height: 600px;
+        }
+
+        .program-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .program-images img:hover { transform: scale(1.03); }
+
+        .program-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 70px;
+        }
+
+        .program-content.dark {
+            background: var(--charcoal);
+        }
+
+        .program-content.light-bg {
+            background: var(--cream);
+        }
+
+        .program-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        .program-content.dark h2 { color: var(--warm-white); }
+        .program-content.light-bg h2 { color: var(--text-dark); }
+
+        .program-content > p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            font-weight: 300;
+        }
+
+        .program-content.dark > p { color: rgba(240, 235, 227, 0.75); }
+        .program-content.light-bg > p { color: var(--text-body); }
+
+        .program-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .program-feature-tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+
+        .program-content.dark .program-feature-tag { color: rgba(240, 235, 227, 0.8); }
+        .program-content.light-bg .program-feature-tag { color: var(--text-body); }
+
+        .program-feature-tag svg {
+            width: 16px; height: 16px;
+            stroke: var(--sage);
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        .program-locations {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 28px;
+        }
+
+        .program-content.dark .program-locations { color: var(--sage); }
+        .program-content.light-bg .program-locations { color: var(--olive); }
+
+        .program-content .btn-primary { align-self: flex-start; }
+
+        .program-content.light-bg .btn-primary {
+            background: var(--charcoal);
+            color: var(--warm-white);
+        }
+
+        .program-content.light-bg .btn-primary:hover {
+            background: #333;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        /* ===== THE RELEASE WAY ===== */
+        .release-way {
+            background: var(--warm-white);
+        }
+
+        .release-way-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .release-way-header .section-subtitle { margin: 0 auto; }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .pillar-card {
+            background: var(--white);
+            padding: 44px 32px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--olive), var(--sage));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .pillar-card:hover::before { opacity: 1; }
+
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .pillar-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--sage);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .pillar-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .pillar-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TREATMENT PROGRAMS ===== */
+        .treatment {
+            background: var(--charcoal);
+        }
+
+        .treatment-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .treatment-header .section-subtitle { margin: 0 auto; }
+
+        .treatment-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .treatment-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 40px 28px;
+            transition: all 0.3s;
+        }
+
+        .treatment-card:hover {
+            background: rgba(255,255,255,0.07);
+            transform: translateY(-4px);
+        }
+
+        .treatment-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--warm-white);
+            margin-bottom: 14px;
+        }
+
+        .treatment-card p {
+            font-size: 0.88rem;
+            color: rgba(240, 235, 227, 0.6);
+            line-height: 1.7;
+        }
+
+        .treatment-card-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--sage);
+            margin-bottom: 18px;
+            padding: 5px 12px;
+            border: 1px solid rgba(163, 177, 138, 0.3);
+            border-radius: 20px;
+        }
+
+        /* ===== RECOVERY SERVICES ===== */
+        .recovery-services {
+            background: var(--cream);
+        }
+
+        .recovery-services-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .recovery-services-header .section-subtitle { margin: 0 auto; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 36px 24px;
+            text-align: center;
+            transition: all 0.4s;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: rgba(107, 124, 94, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+        }
+
+        .service-icon svg {
+            width: 22px; height: 22px;
+            stroke: var(--olive);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: var(--warm-white);
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .testimonials-header .section-subtitle { margin: 0 auto; }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 44px 36px;
+            position: relative;
+            transition: all 0.3s;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+
+        .testimonial-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--sage);
+            line-height: 1;
+            margin-bottom: 12px;
+            opacity: 0.4;
+        }
+
+        .testimonial-card p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* ===== PROPERTIES ===== */
+        .properties {
+            background: var(--charcoal);
+        }
+
+        .properties-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .properties-header .section-subtitle { margin: 0 auto; }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .property-card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.4s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .property-card-image {
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .property-card-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .property-card:hover .property-card-image img { transform: scale(1.05); }
+
+        .property-card-body {
+            padding: 36px 32px;
+        }
+
+        .property-card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--warm-white);
+            margin-bottom: 8px;
+        }
+
+        .property-card-body .property-location {
+            font-size: 0.8rem;
+            color: var(--sage);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .property-card-body p {
+            font-size: 0.9rem;
+            color: rgba(240, 235, 227, 0.6);
+            line-height: 1.7;
+        }
+
+        /* ===== TEAM ===== */
+        .team {
+            background: var(--warm-white);
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .team-header .section-subtitle { margin: 0 auto; }
+
+        .team-group-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--olive);
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        .team-group-label:first-of-type { margin-top: 0; }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.08);
+        }
+
+        .team-card-photo {
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .team-card-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.6s;
+        }
+
+        .team-card:hover .team-card-photo img { transform: scale(1.05); }
+
+        .team-card-info {
+            padding: 24px;
+        }
+
+        .team-card-info h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .team-card-info span {
+            font-size: 0.8rem;
+            color: var(--olive);
+            font-weight: 500;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .staff-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .staff-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        .staff-card-photo {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .staff-card-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.5s;
+        }
+
+        .staff-card:hover .staff-card-photo img { transform: scale(1.05); }
+
+        .staff-card-info {
+            padding: 16px;
+        }
+
+        .staff-card-info h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .staff-card-info span {
+            font-size: 0.72rem;
+            color: var(--olive);
+            font-weight: 500;
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            background: var(--cream);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 22px 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover { color: var(--olive); }
+
+        .faq-question svg {
+            flex-shrink: 0;
+            width: 16px; height: 16px;
+            stroke: currentColor;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active svg { transform: rotate(45deg); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.open {
+            max-height: 300px;
+            padding-bottom: 22px;
+        }
+
+        .faq-answer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== CONTACT CTA ===== */
+        .contact {
+            background: var(--charcoal);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at center, rgba(107, 124, 94, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .contact-inner {
+            position: relative; z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-method { text-align: center; }
+
+        .contact-method-label {
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .contact-method a {
+            color: var(--warm-white);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-method a:hover { color: var(--sage); }
+
+        .contact-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--charcoal);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 60px 80px 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: rgba(240, 235, 227, 0.45);
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 18px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(240, 235, 227, 0.55);
+            text-decoration: none;
+            font-size: 0.88rem;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover { color: var(--sage); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: rgba(240, 235, 227, 0.3);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: var(--warm-white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--sage);
+            background: rgba(107, 124, 94, 0.15);
+        }
+
+        .footer-social svg {
+            width: 18px; height: 18px;
+            fill: currentColor;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .treatment-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+            .leadership-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 1024px) {
+            section { padding: 80px 40px; }
+            nav { padding: 0 30px; }
+            .hero-content { padding: 0 40px; }
+            .hero-services { padding: 18px 30px; gap: 24px; flex-wrap: wrap; justify-content: center; }
+            .program-section { grid-template-columns: 1fr; }
+            .program-section.reversed .program-images { order: 1; }
+            .program-section.reversed .program-content { order: 2; }
+            .program-content { padding: 60px 40px; }
+            .program-images { min-height: 400px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .properties-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 20px; }
+            .intro-features { grid-template-columns: 1fr; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .treatment-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .leadership-grid { grid-template-columns: 1fr; }
+            .staff-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .hero-services { display: none; }
+            .hero-content { padding: 0 20px; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 0.95rem; margin-bottom: 32px; }
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-outline { justify-content: center; text-align: center; }
+            .program-section { min-height: auto; }
+            .program-images { min-height: 280px; grid-template-columns: 1fr; }
+            .program-images img:nth-child(2) { display: none; }
+            .program-content { padding: 40px 20px; }
+            .program-content h2 { font-size: 1.7rem; }
+            .program-features { grid-template-columns: 1fr; gap: 6px; }
+            .program-feature-tag { font-size: 0.82rem; padding: 6px 0; }
+            .program-content .btn-primary { align-self: stretch; justify-content: center; text-align: center; }
+            .section-title { font-size: 1.8rem; }
+            .section-subtitle { font-size: 0.95rem; }
+            .pillar-card { padding: 32px 24px; }
+            .treatment-card { padding: 32px 22px; }
+            .service-card { padding: 28px 20px; }
+            .testimonial-card { padding: 32px 24px; }
+            .testimonial-quote { font-size: 2.5rem; }
+            .property-card-image { height: 220px; }
+            .property-card-body { padding: 24px 20px; }
+            .property-card-body h3 { font-size: 1.3rem; }
+            .team-card-photo { height: 200px; }
+            .team-card-info { padding: 16px; }
+            .team-card-info h4 { font-size: 0.95rem; }
+            .staff-card-photo { height: 160px; }
+            .staff-card-info { padding: 12px; }
+            .staff-card-info h4 { font-size: 0.82rem; }
+            .staff-card-info span { font-size: 0.68rem; }
+            .faq-question { font-size: 0.88rem; padding: 18px 0; }
+            .contact-methods { flex-direction: column; gap: 20px; }
+            .contact-buttons { flex-direction: column; align-items: stretch; }
+            .contact-buttons .btn-primary,
+            .contact-buttons .btn-outline { justify-content: center; text-align: center; }
+            footer { padding: 40px 20px 24px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-brand img { height: 40px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+
+            /* Mobile nav */
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: var(--charcoal);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+                z-index: 999;
+                padding: 20px;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { font-size: 1rem; letter-spacing: 2px; }
+            .nav-cta { margin-top: 10px; }
+            .mobile-toggle { display: flex; }
+            nav { padding: 0 20px; height: 70px; }
+            .nav-logo img { height: 50px; }
+            nav.scrolled { height: 60px; }
+            nav.scrolled .nav-logo img { height: 40px; }
+        }
+
+        @media (max-width: 400px) {
+            section { padding: 48px 16px; }
+            .hero h1 { font-size: 1.7rem; }
+            .hero-content { padding: 0 16px; }
+            .section-title { font-size: 1.5rem; }
+            .staff-grid { grid-template-columns: 1fr; }
+            .program-content { padding: 32px 16px; }
+            .btn-primary, .btn-outline { padding: 14px 24px; font-size: 0.78rem; }
+            nav { padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">
+            <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/3f7fdea6-67f0-4318-86f8-89426775911e/Yellow+Monochrome+Photo+LinkedIn+Banner.png" alt="Release Recovery">
+        </a>
+        <div class="mobile-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <button class="mobile-close" onclick="closeMenu()">&times;</button>
+            <li><a href="#about" onclick="closeMenu()">About</a></li>
+            <li><a href="#programs" onclick="closeMenu()">Programs</a></li>
+            <li><a href="#treatment" onclick="closeMenu()">Treatment</a></li>
+            <li><a href="#services" onclick="closeMenu()">Services</a></li>
+            <li><a href="#team" onclick="closeMenu()">Team</a></li>
+            <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+            <li><a href="https://releaserecoveryaustin.com/" target="_blank" onclick="closeMenu()">Austin</a></li>
+            <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Get Help Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-label">Release Recovery</div>
+            <h1>Change the Way You Approach Recovery</h1>
+            <p>Release Recovery helps individuals and their families recover from substance use and mental health disorders through customized treatment, bespoke transitional living, and concierge recovery services.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Get Confidential Help</a>
+                <a href="#programs" class="btn-outline">Explore Programs</a>
+            </div>
+        </div>
+        <div class="hero-services">
+            <span class="hero-service-tag">Transitional Living</span>
+            <span class="hero-service-tag">IOP</span>
+            <span class="hero-service-tag">Case Management</span>
+            <span class="hero-service-tag">Intervention</span>
+            <span class="hero-service-tag">Sober Companion</span>
+            <span class="hero-service-tag">Safe Transport</span>
+        </div>
+    </section>
+
+    <!-- ===== INTRO ===== -->
+    <section class="intro" id="about">
+        <div class="section-label reveal">Our Approach</div>
+        <h2 class="section-title reveal">A New Standard in Recovery</h2>
+        <p class="section-subtitle reveal">Founded in 2017 by Zac Clark and a dedicated team committed to transforming global perspectives on recovery. We deliver comprehensive, innovative, individualized care.</p>
+        <div class="intro-features">
+            <div class="intro-feature reveal">
+                <div class="intro-feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+                <h3>Personalized Care</h3>
+                <p>Every treatment plan is tailored to your unique needs, lifestyle, and goals with 24/7 staff support, drug testing, and alcohol monitoring.</p>
+            </div>
+            <div class="intro-feature reveal">
+                <div class="intro-feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3>Community &amp; Support</h3>
+                <p>We connect you to a network of alumni, allies, and peers providing invaluable understanding and support throughout your journey.</p>
+            </div>
+            <div class="intro-feature reveal">
+                <div class="intro-feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+                <h3>Five-Star Facilities</h3>
+                <p>Luxurious amenities including on-site chefs, laundry services, and unique programming such as yoga and breath work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MEN'S PROGRAM ===== -->
+    <div class="program-section" id="programs">
+        <div class="program-images">
+            <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/d509839d-5ba4-4505-a9f0-39d0e3d3d524/jzsnapz-chelsea-property-14.jpg" alt="Men's living space">
+            <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/31eea4dd-164a-4054-abd1-17757a44e28e/jzsnapz-westchester-underhill-6.jpg" alt="Westchester estate">
+        </div>
+        <div class="program-content dark">
+            <div class="section-label" style="color: var(--sage);">Men's Program</div>
+            <h2>Men's Transitional Living</h2>
+            <p>A carefully designed program that offers the structure, accountability, and community support you need to maintain your recovery and integrate what you learn into your life after treatment.</p>
+            <div class="program-features">
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>High client-to-staff ratio</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Awake overnight staff</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Assigned case managers</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Upscale facilities</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Frequent drug/alcohol testing</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Unique programming</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Family support groups</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Medication management</div>
+            </div>
+            <div class="program-locations">New York City &nbsp;|&nbsp; Westchester County</div>
+            <a href="#contact" class="btn-primary">Learn More</a>
+        </div>
+    </div>
+
+    <!-- ===== WOMEN'S PROGRAM ===== -->
+    <div class="program-section reversed">
+        <div class="program-images">
+            <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/fa01b543-6f19-4284-83cb-f59b1dea57c2/release-UES-Women-House-2-19.jpg" alt="Women's living space">
+            <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/25ec608b-5832-46cd-b010-21ade0da81a0/jzsnapz-release-women-westchester-7.jpg" alt="Women's Westchester property">
+        </div>
+        <div class="program-content light-bg">
+            <div class="section-label">Women's Program</div>
+            <h2>Women's Transitional Living</h2>
+            <p>Release Recovery's Women's Program provides a warm and enriching space for women navigating addiction and mental health. An individualized 4-tier recovery program teaches clients to nurture recovery, pursue ambitions, explore healthy outlets, and practice sustainable self-sufficiency.</p>
+            <div class="program-features">
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>High client-to-staff ratio</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Awake overnight staff</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Assigned case managers</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Upscale facilities</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Frequent drug/alcohol testing</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Unique programming</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Family support groups</div>
+                <div class="program-feature-tag"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Medication management</div>
+            </div>
+            <div class="program-locations">Manhattan Upper East Side &nbsp;|&nbsp; Westchester County</div>
+            <a href="#contact" class="btn-primary">Learn More</a>
+        </div>
+    </div>
+
+    <!-- ===== THE RELEASE WAY ===== -->
+    <section class="release-way">
+        <div class="release-way-header reveal">
+            <div class="section-label">Our Philosophy</div>
+            <h2 class="section-title">The Release Way</h2>
+            <p class="section-subtitle">Six core pillars that define our approach to lasting recovery.</p>
+        </div>
+        <div class="pillars-grid">
+            <div class="pillar-card reveal">
+                <div class="pillar-number">01</div>
+                <h3>Personalized Treatment</h3>
+                <p>We tailor a treatment plan to help you succeed &mdash; and keep you on track with 24/7 staff support, drug testing, and alcohol monitoring.</p>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-number">02</div>
+                <h3>Community of Support</h3>
+                <p>We connect you to a network of alumni, allies, and peers &mdash; providing you with an invaluable sense of understanding and support.</p>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-number">03</div>
+                <h3>Chief Medical Officer</h3>
+                <p>Each resident undergoes a comprehensive medical consultation with our in-house doctor. The CMO provides ongoing medication management throughout treatment.</p>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-number">04</div>
+                <h3>Five-Star Facilities</h3>
+                <p>Our high-end, highly structured sober homes feature luxurious amenities including an on-site chef and laundry services, along with yoga and breath work.</p>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-number">05</div>
+                <h3>Comprehensive Family Support</h3>
+                <p>We offer in-person and virtual family support groups, family education days, and family coaching. We help every family member &mdash; not just the individual seeking care.</p>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-number">06</div>
+                <h3>Qualified Staff</h3>
+                <p>Our staff is expertly trained to support your recovery journey. Many have lived experience in our programs, uniquely positioning them to help you achieve lasting recovery.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TREATMENT PROGRAMS ===== -->
+    <section class="treatment" id="treatment">
+        <div class="treatment-header reveal">
+            <div class="section-label" style="color: var(--sage);">Clinical Treatment</div>
+            <h2 class="section-title light">Treatment Programs</h2>
+            <p class="section-subtitle light">Evidence-based outpatient treatment for adults with substance use disorder, addiction, trauma, and co-occurring disorders.</p>
+        </div>
+        <div class="treatment-grid">
+            <div class="treatment-card reveal">
+                <div class="treatment-card-tag">Intensive</div>
+                <h3>Partial Hospitalization (PHP)</h3>
+                <p>Intensive, structured treatment with optional supportive community housing. Designed for clients needing more support than standard outpatient but not 24/7 residential care.</p>
+            </div>
+            <div class="treatment-card reveal">
+                <div class="treatment-card-tag">12 Weeks</div>
+                <h3>Intensive Outpatient (IOP)</h3>
+                <p>12-week structured curriculum covering emotional regulation, self-awareness, relapse prevention, interpersonal connectedness. Led by licensed clinicians with CMO oversight.</p>
+            </div>
+            <div class="treatment-card reveal">
+                <div class="treatment-card-tag">Professionals</div>
+                <h3>Evening IOP</h3>
+                <p>Specifically designed for working professionals. 12 hours of on-site programming weekly with trauma-informed treatment delivery.</p>
+            </div>
+            <div class="treatment-card reveal">
+                <div class="treatment-card-tag">Step-Down</div>
+                <h3>Outpatient Program</h3>
+                <p>Step-down program following IOP completion. Includes weekly individual therapy, group therapy, medication management, and family therapy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RECOVERY SERVICES ===== -->
+    <section class="recovery-services" id="services">
+        <div class="recovery-services-header reveal">
+            <div class="section-label">Concierge Care</div>
+            <h2 class="section-title">Recovery Services</h2>
+            <p class="section-subtitle">Evidence-based recovery services to support you at every step of your life-changing journey. We treat the root cause &mdash; so you can achieve sustainable recovery.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+                </div>
+                <h3>Intervention</h3>
+                <p>Customized teams assembled based on individual needs, with non-standardized approaches developed after extensive assessment.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                </div>
+                <h3>Case Management</h3>
+                <p>Assigned case managers providing regular meetings, clinical referrals, recovery goals, and 24/7 crisis support.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3>Sober Companion</h3>
+                <p>Round-the-clock accountability with carefully matched companions, gradually transitioning from intensive to reduced support.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </div>
+                <h3>Safe Transport</h3>
+                <p>Available 365 days a year, 24/7, using trained Release employees nationwide &mdash; never contractors.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+                <h3>Sober Coaching</h3>
+                <p>One-on-one sessions with handpicked coaches, community engagement, and front-loaded support tapering as progress emerges.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROPERTIES ===== -->
+    <section class="properties">
+        <div class="properties-header reveal">
+            <div class="section-label" style="color: var(--sage);">Our Spaces</div>
+            <h2 class="section-title light">Tour Our Properties</h2>
+            <p class="section-subtitle light">Upscale, structured environments designed to support your healing journey.</p>
+        </div>
+        <div class="properties-grid">
+            <div class="property-card reveal">
+                <div class="property-card-image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/0b4cd0b8-53fd-4a86-bf10-126ed738aa9b/jzsnapz-chelsea-property-8.jpg" alt="NYC property">
+                </div>
+                <div class="property-card-body">
+                    <h3>NYC Transitional Living</h3>
+                    <div class="property-location">Flatiron &nbsp;|&nbsp; Greenwich Village &nbsp;|&nbsp; Upper East Side</div>
+                    <p>Two luxury Manhattan apartments with private outdoor spaces and convenient subway access, situated in one of the best recovery communities in the country.</p>
+                </div>
+            </div>
+            <div class="property-card reveal">
+                <div class="property-card-image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/c18e75e4-076f-4895-b4dc-ba24125cd5d3/jzsnapz-westchester-underhill-14.jpg" alt="Westchester property">
+                </div>
+                <div class="property-card-body">
+                    <h3>Westchester Transitional Living</h3>
+                    <div class="property-location">Westchester County, NY</div>
+                    <p>Nine-bedroom country estate with luxury amenities including indoor heated pool, sauna, beautifully landscaped grounds, and a converted cottage for educational pursuits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials">
+        <div class="testimonials-header reveal">
+            <div class="section-label">Success Stories</div>
+            <h2 class="section-title">Giving You a Space to Heal</h2>
+            <p class="section-subtitle">Real stories from people who transformed their lives through Release.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">&ldquo;</div>
+                <p>The Release program slowly started to change who I was and what I stood for. I gained confidence in myself and began to take ownership of my life.</p>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">&ldquo;</div>
+                <p>Release gave me all of the tools and support I needed to stay sober, work a strong program, get back into the workforce, and live a life beyond my wildest dreams.</p>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">&ldquo;</div>
+                <p>I absolutely loved Release. I cannot express enough in words my gratitude for the staff and my fellow residents here. It was a life changing experience that I would enthusiastically recommend to any future resident.</p>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">&ldquo;</div>
+                <p>Release became a place for me to continue healing after treatment. If you told me to agree to transitional living while running a business and having a wife and four kids at home &mdash; I would've told you it's impossible. But Release made it work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM ===== -->
+    <section class="team" id="team">
+        <div class="team-header reveal">
+            <div class="section-label">Our People</div>
+            <h2 class="section-title">Meet the Team</h2>
+            <p class="section-subtitle">Expertly trained professionals, many with lived experience in our programs.</p>
+        </div>
+
+        <div class="team-group-label reveal">Leadership</div>
+        <div class="leadership-grid reveal">
+            <div class="team-card">
+                <div class="team-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/31894017-0b06-49fc-8264-0ecdf7e39a8d/release-Zac-Clark.jpg" alt="Zac Clark"></div>
+                <div class="team-card-info"><h4>Zac Clark</h4><span>Founder &amp; CEO</span></div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/3f0cbcb7-84a5-4a3a-8488-d025a04ec8b3/Introducing+THE+MARKETING+EXCHANGE+%283%29.png" alt="Matthew Stefanko"></div>
+                <div class="team-card-info"><h4>Matthew Stefanko</h4><span>Chief Operating Officer</span></div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/25205723-26eb-4c51-b07f-0f2137da6417/Michael-McCormick.jpg" alt="Michael McCormick"></div>
+                <div class="team-card-info"><h4>Michael A. McCormick, D.O.</h4><span>Chief Medical Officer</span></div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/bc3cfdf8-4446-41fa-9e99-4391375c95a8/jzsnapz-release-nyc-headshots-8.jpg" alt="Laura Sorte"></div>
+                <div class="team-card-info"><h4>Laura Sorte</h4><span>Executive Director of Clinical Services</span></div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/2de2ae6b-0338-477e-b7aa-c2e0a65116c8/Staff+Headshots+%282%29.png" alt="Blake Porter"></div>
+                <div class="team-card-info"><h4>Blake Porter</h4><span>VP of Business Development</span></div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/92978862-9db3-4739-a759-265530bc1471/jzsnapz-chelsea-men-profile-15.jpg" alt="Stephen D'Antonio"></div>
+                <div class="team-card-info"><h4>Stephen D'Antonio</h4><span>VP of Residential Care</span></div>
+            </div>
+        </div>
+
+        <div class="team-group-label reveal">HQ Staff</div>
+        <div class="staff-grid reveal">
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/3220758e-fc39-409e-83aa-c7da9674c483/4-2-25+Headshots+%281%29.jpg" alt="Grace Adams"></div>
+                <div class="staff-card-info"><h4>Grace Adams</h4><span>Director of Marketing</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/b17a66e4-7dca-4d8c-bd31-3a82821dd845/Staff+Headshots+%282%29.jpg" alt="Kim Colasuonno"></div>
+                <div class="staff-card-info"><h4>Kim Colasuonno</h4><span>Community Outreach Manager</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/aedb215a-b302-4b1c-854a-790c87d67127/Staff+Headshots+%287%29.jpg" alt="Karyssa D'Agostino"></div>
+                <div class="staff-card-info"><h4>Karyssa D'Agostino</h4><span>Executive Support &amp; Social Media</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/545fe544-bcdb-471b-9fb6-be6071e7ffa1/release-Hannah-Flynn.jpg" alt="Hannah Flynn"></div>
+                <div class="staff-card-info"><h4>Hannah Flynn</h4><span>Dir. of Business Operations</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/f40ad643-63f5-4461-80b9-0c1e032ee8b9/1.jpg" alt="Nhya Gonzalez"></div>
+                <div class="staff-card-info"><h4>Nhya Gonzalez</h4><span>Marketing Associate</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/0bc6abd3-675d-46be-9b61-3b1462b1994a/John_Kourtessis-1+%282%29.jpg" alt="John Kourtessis"></div>
+                <div class="staff-card-info"><h4>John Kourtessis</h4><span>Dir. of Operations &amp; Facilities</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/f6b786f1-d041-4a8c-8bc4-fc5ac69c951d/Staff+Headshots+%2825%29.jpg" alt="Creed McClellan"></div>
+                <div class="staff-card-info"><h4>Creed McClellan</h4><span>Admissions Manager</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/fe8a996b-ff0f-4043-8c48-f315fd54731f/Chris-Nagle.jpg" alt="Chris Nagle"></div>
+                <div class="staff-card-info"><h4>Chris Nagle</h4><span>Director of Admissions</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/a972e236-bf1b-4f4f-a431-99c4524834b9/jzsnapz-release-nyc-headshots-2.jpg" alt="Jordan Rabner"></div>
+                <div class="staff-card-info"><h4>Jordan Rabner</h4><span>Care Strategy &amp; Analytics</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/299b78bd-d2ff-416d-a737-e47ad38823aa/IMG_8738.jpg" alt="Irving Montgomery"></div>
+                <div class="staff-card-info"><h4>Irving Montgomery</h4><span>Partner Success Manager</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/28b27fa2-2bc8-41b4-bfb5-5f4beea6c62f/Staff+Headshots.jpg" alt="Moore Woltz"></div>
+                <div class="staff-card-info"><h4>Moore Woltz</h4><span>Admissions Manager</span></div>
+            </div>
+        </div>
+
+        <div class="team-group-label reveal">Clinical Team</div>
+        <div class="staff-grid reveal">
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/e7adebbd-7e9e-4b45-918c-f6c1896d829f/Staff+Headshots+%284%29.jpg" alt="Peter Ceravino"></div>
+                <div class="staff-card-info"><h4>Peter Ceravino</h4><span>Primary Therapist, MHC-LP</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/179d3acf-5377-4ff8-af1b-dba3ccfaea0d/Sean-Duane.jpg" alt="Sean Duane"></div>
+                <div class="staff-card-info"><h4>Sean Duane</h4><span>Dir. of Clinical Development</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/34227ce4-9751-4bdd-9e6f-2919cd476e1c/12.jpg" alt="Neal Hoontis"></div>
+                <div class="staff-card-info"><h4>Neal Hoontis</h4><span>Dir. of Revenue Management</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/671bb30c-1d08-47b7-8def-82be894f41dc/13.jpg" alt="Justin Huffaker"></div>
+                <div class="staff-card-info"><h4>Justin Huffaker</h4><span>Lead Therapist, LMSW</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/43ef95ea-6008-48f5-8d13-7e21a54d9169/11.jpg" alt="Sara Kopf"></div>
+                <div class="staff-card-info"><h4>Sara Kopf</h4><span>Lead Therapist, RDMT, LCAT</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/0970e3af-16f3-4e52-9dd5-155a17ad7b7f/Staff+Headshots+%287%29.jpg" alt="Shana Neuhauser"></div>
+                <div class="staff-card-info"><h4>Shana Neuhauser</h4><span>Therapist, LMSW, CASAC-T</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/73c9b4d3-df97-4d10-b682-16fd8b66387a/release-Nadine.jpg" alt="Nadine Raia"></div>
+                <div class="staff-card-info"><h4>Nadine Raia</h4><span>Therapist, LMSW, CASAC</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/3bdb8623-f95f-48f9-9876-add6befca265/jzsnapz-release-nyc-headshots-1.jpg" alt="Caryn Rude"></div>
+                <div class="staff-card-info"><h4>Caryn Rude</h4><span>Therapist, CRPA, MHCP</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/b06deb2f-036c-4ef6-b396-5e616c2575dd/76.jpg" alt="Andre Salerno"></div>
+                <div class="staff-card-info"><h4>Andre Salerno</h4><span>Primary Therapist, LMSW</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/024fbaee-33dc-45b8-bfd5-7349fa29ef94/jzsnapz-ues-women-portraits-1.jpg" alt="Laura Swanson"></div>
+                <div class="staff-card-info"><h4>Laura Swanson</h4><span>Case Manager</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/672087b6-67d1-4ba7-9534-95ea4560bb9c/Staff+Headshots+%2828%29.jpg" alt="Anne Marie Vadeboncoeur"></div>
+                <div class="staff-card-info"><h4>Anne Marie Vadeboncoeur</h4><span>Registered Nurse</span></div>
+            </div>
+        </div>
+
+        <div class="team-group-label reveal">Residential Staff</div>
+        <div class="staff-grid reveal">
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/45e8cb41-4371-45aa-b334-89850da110f5/Release-Georgia_Bobley+%281%29.jpg" alt="Georgia Bobley"></div>
+                <div class="staff-card-info"><h4>Georgia Bobley</h4><span>Women's Program Director</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/de26d11e-7c1d-456d-b0b4-cab367caca67/Untitled+design+%288%29.jpg" alt="Emma Trokel"></div>
+                <div class="staff-card-info"><h4>Emma Trokel</h4><span>Women's Program Director</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/12cf8300-73d9-498b-afb9-a7eb19acda39/jzsnapz-release-nyc-headshots-4.jpg" alt="Eddie Manley"></div>
+                <div class="staff-card-info"><h4>Eddie Manley</h4><span>NYC Program Director</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/08570d46-bb14-4196-9ca1-eb9c0d30b19c/jzsnapz-westchester-portraits-11.jpg" alt="Guy Rella"></div>
+                <div class="staff-card-info"><h4>Guy Rella</h4><span>Westchester Program Director</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/55d8702d-2219-4a7c-8f3c-f8597d70ff36/Release-Soo_Saxton+%281%29.jpg" alt="Soo Saxton"></div>
+                <div class="staff-card-info"><h4>Soo Saxton</h4><span>Community Manager, NYC Mens</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/b61ae6dd-889b-4d5b-9dac-b4bba7457c45/Nathaniel-Brevard.jpg" alt="Nathan Brevard"></div>
+                <div class="staff-card-info"><h4>Nathan Brevard</h4><span>Case Manager</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/2a571df4-336b-4f13-9675-4a3988b120f2/jzsnapz-westchester-portraits-23.jpg" alt="Sam Brisson"></div>
+                <div class="staff-card-info"><h4>Sam Brisson</h4><span>Case Manager</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/76ee9c27-ec0d-4d0f-9429-cf7898360fc2/Staff+Headshots+%282%29.jpg" alt="Morgan Savage"></div>
+                <div class="staff-card-info"><h4>Morgan Savage</h4><span>Case Manager</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/c612ee84-1c60-4e42-8949-f1123dad18ae/22.jpg" alt="Rebecca Raphaelson"></div>
+                <div class="staff-card-info"><h4>Rebecca Raphaelson</h4><span>Lead Recovery Associate</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/3d568e55-5eb0-4a86-9313-153093c95daf/jzsnapz-westchester-portraits-17.jpg" alt="Adam Rappaport"></div>
+                <div class="staff-card-info"><h4>Adam Rappaport</h4><span>Lead Recovery Associate</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/66dd71ff-e88c-477f-bc45-f3edc534ccdc/Staff+Headshots+%2815%29.jpg" alt="Nick Chiodo"></div>
+                <div class="staff-card-info"><h4>Nick Chiodo</h4><span>Executive Chef</span></div>
+            </div>
+            <div class="staff-card">
+                <div class="staff-card-photo"><img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/a2e96c27-27e0-4952-b8c1-0e7559b137b0/Staff+Headshots+%2814%29.jpg" alt="Karen Beauchamp"></div>
+                <div class="staff-card-info"><h4>Karen Beauchamp</h4><span>Sous Chef</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq">
+        <div class="faq-header reveal">
+            <div class="section-label">Questions</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-container reveal">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">How long does the admission process take?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>The comprehensive process typically requires approximately one week from initial contact to admission to properly gather information from current providers, loved ones, and the client.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">What makes transitional living different from sober living?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>Release's transitional living is much more than a place to live &mdash; it combines structure, accountability, and community through high staff ratios, overnight staff, upscale facilities, diverse programming (yoga, volunteer work), frequent testing, and weekly family support. Every client has a dedicated case manager.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Can I work while at Release?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>Yes. The program encourages employment once clients establish their recovery foundation, viewing it as an important integration step while surrounded by support.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Do I need to complete detox or treatment before applying?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>No treatment prerequisites exist. Admission decisions are evaluated on a case-by-case basis.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">What type of recovery programming is offered?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>Programming includes volunteer work, cooking, yoga, academic support, career guidance, writing, movement classes, and community activities like camping trips, dinners, and barbecues.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Is there programming for busy professionals?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>Yes. A specialized transitional living track for busy professionals and executives balances structure with flexibility for work demands. Concierge services accommodate individual needs.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">How long can or should a client stay?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>The focus is behavioral milestones rather than duration. While everyone's timeline differs, the program advocates for a minimum three-month stay.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">What is your medication policy?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>Release supports Medication-Assisted Treatment, evaluating each client's situation individually.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Will I have a roommate?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>Both shared and single rooms are available.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Is there a difference between NYC and Westchester locations?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>Program structures are identical. Westchester provides daily transportation due to limited public transit access.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">What should I bring?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>The all-inclusive program requires only personal items: yourself, a desire to participate, a positive mindset, and basic belongings like clothing and grooming items.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Are there electronic device restrictions?<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <div class="faq-answer"><p>All devices are permitted. Upon arrival, there's a five-day electronic blackout, then nightly device surrender for the first month.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT CTA ===== -->
+    <section class="contact" id="contact">
+        <div class="contact-inner reveal">
+            <div class="section-label" style="color: var(--sage);">Confidential Assistance</div>
+            <h2 class="section-title light">Need Help for Yourself or a Loved One?</h2>
+            <p class="section-subtitle light" style="text-align: center; margin: 0 auto;">Our team is available to guide you through every step. All inquiries are completely confidential.</p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-method-label">Phone</div>
+                    <a href="tel:+19142667642">914-266-7642</a>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-method-label">Email</div>
+                    <a href="mailto:connect@releaserecovery.com">connect@releaserecovery.com</a>
+                </div>
+            </div>
+            <div class="contact-buttons">
+                <a href="mailto:connect@releaserecovery.com" class="btn-primary">Contact Us</a>
+                <a href="https://releaserecoveryaustin.com/" target="_blank" class="btn-outline">Release Austin</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://images.squarespace-cdn.com/content/v1/67901617a5404348ef9b5e01/3f7fdea6-67f0-4318-86f8-89426775911e/Yellow+Monochrome+Photo+LinkedIn+Banner.png" alt="Release Recovery">
+                <p>Release Recovery helps individuals and families recover from substance use and mental health disorders through customized treatment and concierge recovery services.</p>
+            </div>
+            <div class="footer-col">
+                <h4>About</h4>
+                <a href="#about">Our Story</a>
+                <a href="#team">Our Team</a>
+                <a href="#faq">FAQs</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <a href="#programs">Men's Program</a>
+                <a href="#programs">Women's Program</a>
+                <a href="#treatment">Treatment</a>
+                <a href="#services">Recovery Services</a>
+            </div>
+            <div class="footer-col">
+                <h4>Locations</h4>
+                <a href="#programs">New York City</a>
+                <a href="#programs">Westchester County</a>
+                <a href="https://releaserecoveryaustin.com/" target="_blank">Release Austin</a>
+                <a href="https://www.releaserecoverycenters.com/" target="_blank">Recovery Centers</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2025 Release Recovery. All Rights Reserved.</div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/releaserecovery/" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/company/releaserecovery" target="_blank" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile sticky CTA bar -->
+    <div class="mobile-cta-bar">
+        <a href="tel:+19142667642">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Call Now &mdash; 914-266-7642
+        </a>
+    </div>
+
+    <script>
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+        function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
+
+        // FAQ accordion
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const isOpen = answer.classList.contains('open');
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+            if (!isOpen) { answer.classList.add('open'); btn.classList.add('active'); }
+        }
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+    </script>
+</body>
+</html>
